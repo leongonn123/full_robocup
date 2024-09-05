@@ -70,7 +70,7 @@ def image_callback(msg):
         if is_landmark_visible(right_elbow) and is_landmark_visible(right_shoulder) and is_landmark_visible(right_hip):
             right_angle = calculate_angle(right_elbow, right_shoulder, right_hip)
             right_elbow_bend_angle = calculate_angle(right_shoulder, right_elbow, right_wrist)
-            if right_angle > 18 and right_elbow_bend_angle > 155:  # Consider straight if angle is above 150 degrees
+            if right_angle > 18 and right_elbow_bend_angle > 165:  # Consider straight if angle is above 150 degrees
                 rospy.loginfo("Right arm pointing detected with angle: {:.2f}".format(right_angle))
                 cv2.putText(cv_image, "Right Arm Pointing Detected", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
                 pointing_detected = True
@@ -80,7 +80,7 @@ def image_callback(msg):
         if is_landmark_visible(left_elbow) and is_landmark_visible(left_shoulder) and is_landmark_visible(left_hip):
             left_angle = calculate_angle(left_elbow, left_shoulder, left_hip)
             left_elbow_bend_angle = calculate_angle(left_shoulder, left_elbow, left_wrist)
-            if left_angle > 18 and left_elbow_bend_angle > 155:  # Consider straight if angle is above 150 degrees
+            if left_angle > 18 and left_elbow_bend_angle > 165:  # Consider straight if angle is above 150 degrees
                 rospy.loginfo("Left arm pointing detected with angle: {:.2f}".format(left_angle))
                 cv2.putText(cv_image, "Left Arm Pointing Detected", (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
                 pointing_detected = True
